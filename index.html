@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>祝姐姐生日快乐！</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Microsoft YaHei", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #f9c5d1, #c2a6e3);
+        color: #5a3d5c;
+        min-height: 100vh;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 800px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 30px; /* 减少底部间距 */
+        position: relative;
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        color: #e84393;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .subtitle {
+        font-size: 1.3rem;
+        color: #a29bfe;
+        font-weight: bold;
+        margin-bottom: 60px; /* 增加副标题与蛋糕间距 */
+      }
+
+      .cake-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0; /* 减少蛋糕上下间距 */
+        width: 100%;
+      }
+
+      .birthday-cake {
+        width: 280px;
+        height: 280px;
+        position: relative;
+      }
+
+      .plate {
+        width: 220px;
+        height: 20px;
+        background: #dfe6e9;
+        border-radius: 10px;
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .cake-layer-3 {
+        width: 200px;
+        height: 60px;
+        background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+        border-radius: 10px 10px 0 0;
+        position: absolute;
+        bottom: 50px;
+        left: 40px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .cake-layer-2 {
+        width: 170px;
+        height: 50px;
+        background: linear-gradient(to bottom, #ffdde1, #ffafbd);
+        border-radius: 10px 10px 0 0;
+        position: absolute;
+        bottom: 110px;
+        left: 55px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .cake-layer-1 {
+        width: 140px;
+        height: 40px;
+        background: linear-gradient(to bottom, #ffeaa7, #fd79a8);
+        border-radius: 10px 10px 0 0;
+        position: absolute;
+        bottom: 160px;
+        left: 70px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .icing {
+        width: 160px;
+        height: 25px;
+        background: linear-gradient(to bottom, #ffdde1, #ffafbd);
+        border-radius: 50%;
+        position: absolute;
+        bottom: 200px;
+        left: 60px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .candle-1,
+      .candle-2,
+      .candle-3 {
+        width: 12px;
+        height: 45px;
+        background: linear-gradient(to bottom, #74b9ff, #0984e3);
+        position: absolute;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .candle-1 {
+        bottom: 245px;
+        left: 80px;
+      }
+
+      .candle-2 {
+        bottom: 245px;
+        left: 134px;
+      }
+
+      .candle-3 {
+        bottom: 245px;
+        left: 188px;
+      }
+
+      .flame-1,
+      .flame-2,
+      .flame-3 {
+        width: 18px;
+        height: 30px;
+        background: linear-gradient(to bottom, #ffd93d, #ff6b6b);
+        border-radius: 50% 50% 20% 20%;
+        position: absolute;
+        box-shadow: 0 0 15px #ffd93d;
+      }
+
+      .flame-1 {
+        bottom: 275px;
+        left: 77px;
+        animation: flicker 1.5s infinite alternate;
+      }
+
+      .flame-2 {
+        bottom: 275px;
+        left: 131px;
+        animation: flicker 1.8s infinite alternate;
+      }
+
+      .flame-3 {
+        bottom: 275px;
+        left: 185px;
+        animation: flicker 2.1s infinite alternate;
+      }
+
+      @keyframes flicker {
+        0%,
+        100% {
+          transform: scaleY(1) scaleX(1);
+          opacity: 0.9;
+        }
+        25% {
+          transform: scaleY(1.1) scaleX(0.9);
+          opacity: 1;
+        }
+        50% {
+          transform: scaleY(0.9) scaleX(1.1);
+          opacity: 0.8;
+        }
+        75% {
+          transform: scaleY(1.05) scaleX(0.95);
+          opacity: 1;
+        }
+      }
+
+      .message-section {
+        margin: 30px 0; /* 减少消息区域上下间距 */
+        padding: 25px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        position: relative;
+        width: 90%;
+        max-width: 700px;
+        text-align: center;
+      }
+
+      .message-section h2 {
+        color: #e84393;
+        margin-bottom: 25px;
+        text-align: center;
+        font-size: 1.8rem;
+      }
+
+      .wishes {
+        line-height: 1.8;
+        font-size: 1.15rem;
+        text-align: justify;
+      }
+
+      .wishes p {
+        margin-bottom: 18px;
+        text-indent: 2em;
+      }
+
+      .interactive-section {
+        margin: 40px 0;
+        text-align: center;
+        width: 100%;
+      }
+
+      .balloon {
+        width: 60px;
+        height: 70px;
+        background: #fd79a8;
+        border-radius: 50%;
+        position: relative;
+        display: inline-block;
+        margin: 0 15px;
+        animation: float 5s infinite ease-in-out;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .balloon:before {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 25px;
+        background: #636e72;
+      }
+
+      .balloon:nth-child(2) {
+        background: #74b9ff;
+        animation-delay: 0.5s;
+      }
+
+      .balloon:nth-child(3) {
+        background: #55efc4;
+        animation-delay: 1s;
+      }
+
+      .balloon:nth-child(4) {
+        background: #ffeaa7;
+        animation-delay: 1.5s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-25px);
+        }
+      }
+
+      .balloon:hover {
+        animation-play-state: paused;
+        transform: scale(1.1);
+      }
+
+      .footer {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 1rem;
+        color: #636e72;
+        padding: 15px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        width: 100%;
+      }
+
+      .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #e84393;
+        transform: rotate(45deg);
+        opacity: 0.7;
+        z-index: 0;
+      }
+
+      .heart:before,
+      .heart:after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background: #e84393;
+        border-radius: 50%;
+        position: absolute;
+      }
+
+      .heart:before {
+        top: -10px;
+        left: 0;
+      }
+
+      .heart:after {
+        top: 0;
+        left: -10px;
+      }
+
+      .decoration {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        opacity: 0.6;
+        z-index: 0;
+      }
+
+      .star {
+        background: #ffeaa7;
+        clip-path: polygon(
+          50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%
+        );
+      }
+
+      .circle {
+        background: #a29bfe;
+        border-radius: 50%;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .subtitle {
+          font-size: 1.1rem;
+          margin-bottom: 50px; /* 手机端保持较大的副标题与蛋糕间距 */
+        }
+
+        .balloon {
+          width: 50px;
+          height: 60px;
+          margin: 0 10px;
+        }
+
+        .birthday-cake {
+          width: 220px; /* 手机端减小蛋糕尺寸 */
+          height: 220px;
+        }
+
+        .message-section {
+          width: 95%;
+          margin: 20px 0; /* 手机端进一步减少蛋糕与祝福语间距 */
+        }
+
+        /* 调整手机端蛋糕元素位置 */
+        .plate {
+          width: 180px;
+          left: 20px;
+        }
+
+        .cake-layer-3 {
+          width: 160px;
+          left: 30px;
+        }
+
+        .cake-layer-2 {
+          width: 140px;
+          left: 40px;
+        }
+
+        .cake-layer-1 {
+          width: 120px;
+          left: 50px;
+        }
+
+        .icing {
+          width: 140px;
+          left: 40px;
+        }
+
+        .candle-1 {
+          left: 60px;
+        }
+
+        .candle-2 {
+          left: 110px;
+        }
+
+        .candle-3 {
+          left: 160px;
+        }
+
+        .flame-1 {
+          left: 57px;
+        }
+
+        .flame-2 {
+          left: 107px;
+        }
+
+        .flame-3 {
+          left: 157px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>祝姐姐生日快乐！</h1>
+        <div class="subtitle">愿你的每一天都充满阳光和欢笑</div>
+
+        <div class="cake-container">
+          <div class="birthday-cake">
+            <div class="plate"></div>
+            <div class="cake-layer-3"></div>
+            <div class="cake-layer-2"></div>
+            <div class="cake-layer-1"></div>
+            <div class="icing"></div>
+            <div class="candle-1"></div>
+            <div class="candle-2"></div>
+            <div class="candle-3"></div>
+            <div class="flame-1"></div>
+            <div class="flame-2"></div>
+            <div class="flame-3"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-section">
+        <h2>给最亲爱的姐姐</h2>
+        <div class="wishes">
+          <p>亲爱的姐姐，今天是你的生日，弟弟想送上最真挚的祝福！</p>
+          <p>愿你的每一天都充满阳光，每一刻都洋溢着幸福的笑容。</p>
+          <p>愿你的梦想如繁星般闪耀，愿你的未来如彩虹般绚烂。</p>
+          <p>不管遇到什么挑战，请记住，你永远有弟弟的支持！</p>
+          <p>祝你生日快乐，愿你的笑容永远灿烂如初！</p>
+          <p style="text-align: right; margin-top: 25px">—— 永远爱你的弟弟 ❤</p>
+        </div>
+      </div>
+
+      <div class="interactive-section">
+        <h3>点击气球，收获惊喜祝福！</h3>
+        <div
+          class="balloon"
+          onclick="showMessage('愿你天天开心，笑容常驻！')"
+        ></div>
+        <div
+          class="balloon"
+          onclick="showMessage('愿你的每一个梦想都能实现！')"
+        ></div>
+        <div
+          class="balloon"
+          onclick="showMessage('愿你被世界温柔以待！')"
+        ></div>
+        <div class="balloon" onclick="showMessage('愿你永远年轻美丽！')"></div>
+      </div>
+
+      <div class="footer">
+        <p>永远爱你的弟弟 ❤</p>
+      </div>
+    </div>
+
+    <script>
+      // 气球点击功能
+      function showMessage(message) {
+        alert(message);
+      }
+
+      // 创建飘落的心形
+      function createHearts() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "-20px";
+        heart.style.width = Math.random() * 20 + 10 + "px";
+        heart.style.height = heart.style.width;
+        heart.style.opacity = Math.random() * 0.5 + 0.3;
+        document.body.appendChild(heart);
+
+        // 动画效果
+        const animation = heart.animate(
+          [
+            {
+              transform: "translateY(0) rotate(0deg)",
+              opacity: heart.style.opacity,
+            },
+            {
+              transform: `translateY(${window.innerHeight}px) rotate(${
+                Math.random() * 360
+              }deg)`,
+              opacity: 0,
+            },
+          ],
+          {
+            duration: Math.random() * 3000 + 3000,
+            easing: "cubic-bezier(0.42, 0, 0.58, 1)",
+          }
+        );
+
+        animation.onfinish = () => {
+          heart.remove();
+        };
+      }
+
+      // 创建装饰元素
+      function createDecorations() {
+        const types = ["star", "circle"];
+        const colors = ["#e84393", "#a29bfe", "#74b9ff", "#55efc4", "#ffeaa7"];
+
+        for (let i = 0; i < 15; i++) {
+          const decoration = document.createElement("div");
+          const type = types[Math.floor(Math.random() * types.length)];
+          decoration.className = `decoration ${type}`;
+          decoration.style.left = Math.random() * 100 + "vw";
+          decoration.style.top = Math.random() * 100 + "vh";
+          decoration.style.width = Math.random() * 30 + 10 + "px";
+          decoration.style.height = decoration.style.width;
+          decoration.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+          decoration.style.opacity = Math.random() * 0.4 + 0.1;
+          document.body.appendChild(decoration);
+        }
+      }
+
+      // 初始化
+      createDecorations();
+
+      // 每隔一段时间创建一个心形
+      setInterval(createHearts, 800);
+
+      // 添加一些初始心形
+      for (let i = 0; i < 10; i++) {
+        setTimeout(createHearts, i * 300);
+      }
+    </script>
+  </body>
+</html>
